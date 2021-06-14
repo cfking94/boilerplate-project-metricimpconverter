@@ -14,6 +14,7 @@ suite('Functional Tests', function() {
         .query({input: '10L'})
         .end(function(error, res) {
           assert.equal(res.status, 200);
+          assert.equal(res.type, 'application/json');
           assert.equal(res.body.initNum, 10);
           assert.equal(res.body.initUnit, 'L');
           assert.approximately(res.body.returnNum, 2.64172, 0.1)
@@ -65,6 +66,7 @@ suite('Functional Tests', function() {
         .query({input: 'kg'})
         .end(function(error, res) {
           assert.equal(res.status, 200);
+          assert.equal(res.type, 'application/json');
           assert.equal(res.body.initNum, 1);
           assert.equal(res.body.initUnit, 'kg');
           assert.approximately(res.body.returnNum, 2.20462, 0.1);
